@@ -1,41 +1,60 @@
-# Landfill Locations in India
+# 🗺️ Landfill Locations in India
 
-## Project Overview
+## 📌 Project Overview
 
-This project maps landfill locations across India using geographic coordinates.
+This project maps identified landfill locations across India using geographic coordinates.
 
-The purpose of the project was to visualize the spatial distribution of landfill sites and understand their locations across different states and cities.
+The aim is to visualize the spatial distribution of landfill sites and provide the dataset in a format that can be explored and reused in GIS software.
 
-## Software Used
+## 🌐 Interactive GIS Data
+
+The landfill locations are available as a GeoJSON dataset.
+
+👉 **[View Interactive Map](./disposal_map.geojson)**
+
+The GeoJSON file can also be downloaded and opened in QGIS, ArcGIS, or other GIS software.
+
+## 🖼️ Final Map
+
+![Landfill Locations in India](./disposal_map.png)
+
+## 🛠️ Software Used
 
 - QGIS
-- Google Maps Basemap
+- GIS data processing
+- GeoJSON
+- Cartographic layout design
 
-## Data Used
+## 📊 Dataset
 
 The dataset contains:
-- City
-- State
-- Landfill Name
-- Latitude
-- Longitude
-- Type
-- Status
 
-## GIS Methods
+| Field | Description |
+|---|---|
+| City | City where the landfill is located |
+| State | State where the landfill is located |
+| Landfill Name | Name of the landfill |
+| Latitude | Geographic latitude |
+| Longitude | Geographic longitude |
+| Type | Type of landfill |
+| Status | Current status |
+
+## 🔎 GIS Methods
 
 - Imported CSV data into QGIS
-- Converted latitude and longitude into point locations
-- Assigned WGS 84 (EPSG:4326) coordinate reference system
-- Visualized landfill locations on a map
-- Created a final map layout with title, legend, north arrow and scale bar
+- Used latitude and longitude to create point features
+- Assigned WGS 84 / EPSG:4326
+- Visualized landfill locations across India
+- Prepared a cartographic map layout
+- Exported the GIS data as GeoJSON
+- Created a final map for presentation
 
-## Output
+## 📥 Files
 
-The final map shows the spatial distribution of identified landfill locations across India.
+- **[disposal_map.geojson](./disposal_map.geojson)** — Interactive and downloadable GIS data
+- **[disposal_map.png](./disposal_map.png)** — Final map
+- **[DISPOSAL_IN_INDIA.qgz](./DISPOSAL_IN_INDIA.qgz)** — QGIS project file
 
-## Files
+## 📍 Project Status
 
-- `DISPOSAL_IN_INDIA.qgz` — QGIS project
-- `DATA/` — Project data
-- `MAP/disposal_map.png` — Final map
+Completed GIS mapping project.
