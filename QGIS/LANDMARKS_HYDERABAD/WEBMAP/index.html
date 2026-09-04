@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hyderabad Tourism & Accessibility Map</title>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 10px;
+        }
+
+        #map {
+            height: 90vh;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Hyderabad Tourism & Accessibility Map</h2>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+var map = L.map('map').setView([17.3850, 78.4867], 11);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+
+// ---------------- TOURISM ----------------
+
+fetch('../hyderabad_tourism_attractions.geojson')
+.then(response => response.json())
+.then(data => {
+
+    var tourism = L.geoJSON(data, {
+
+        pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 6,
+                fillOpacity: 0.8
+            });
+        },
+
+        onEachFeature: function(feature, layer) {
+
+            var name = feature.properties.Name || "Tourism Attraction";
+
+            var description =
+                feature.properties.description || "No description available";
+
+            layer.bindPopup(
+                "<b>Tourism Attraction</b><br><br>" +
+                "<b>Name:</b> " + name + "<br>" +
+                "<b>Description:</b> " + description
+            );
+        }
+
+    });
+
+    tourism.addTo(map);
+
+});
+
+
+// ---------------- METRO ----------------
+
+fetch('../hyderabad_metro_stations.geojson')
+.then(response => response.json())
+.then(data => {
+
+    var metro = L.geoJSON(data, {
+
+        pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 5,
+                fillOpacity: 0.9
+            });
+        },
+
+        onEachFeature: function(feature, layer) {
+
+            var name =
+                feature.properties.name ||
+                feature.properties.Name ||
+                "Metro Station";
+
+            layer.bindPopup(
+                "<b>Metro Station</b><br><br>" +
+                "<b>Name:</b> " + name
+            );
+        }
+
+    });
+
+    metro.addTo(map);
+
+});
+
+
+// ---------------- MAJOR ROADS ----------------
+
+fetch('../hyderabad_major_roads.geojson')
+.then(response => response.json())
+.then(data => {
+
+    var roads = L.geoJSON(data, {
+
+        style: {
+            weight: 3
+        },
+
+        onEachFeature: function(feature, layer) {
+
+            var name =
+                feature.properties.name ||
+                feature.properties.Name ||
+                "Major Road";
+
+            layer.bindPopup(
+                "<b>Major Road</b><br><br>" +
+                "<b>Name:</b> " + name
+            );
+        }
+
+    });
+
+    roads.addTo(map);
+
+});
+
+
+// ---------------- PARKS ----------------
+
+fetch('../hyderabad_parks.geojson')
+.then(response => response.json())
+.then(data => {
+
+    var parks = L.geoJSON(data, {
+
+        style: {
+            weight: 1,
+            fillOpacity: 0.5
+        },
+
+        onEachFeature: function(feature, layer) {
+
+            var name =
+                feature.properties.name ||
+                feature.properties.Name ||
+                "Park";
+
+            layer.bindPopup(
+                "<b>Park / Green Space</b><br><br>" +
+                "<b>Name:</b> " + name
+            );
+        }
+
+    });
+
+    parks.addTo(map);
+
+});
+
+
+// ---------------- WATER BODIES ----------------
+
+fetch('../hyderabad_waterbodies.geojson')
+.then(response => response.json())
+.then(data => {
+
+    var water = L.geoJSON(data, {
+
+        style: {
+            weight: 1,
+            fillOpacity: 0.5
+        },
+
+        onEachFeature: function(feature, layer) {
+
+            var name =
+                feature.properties.name ||
+                feature.properties.Name ||
+                "Water Body";
+
+            layer.bindPopup(
+                "<b>Water Body</b><br><br>" +
+                "<b>Name:</b> " + name
+            );
+        }
+
+    });
+
+    water.addTo(map);
+
+});
+
+
+// ---------------- HYDERABAD BOUNDARY ----------------
+
+fetch('../hyderabad_boundary.geojson')
+.then(response => response.json())
+.then(data => {
+
+    var boundary = L.geoJSON(data, {
+
+        style: {
+            color: "red",
+            weight: 3,
+            fillOpacity: 0
+        },
+
+        onEachFeature: function(feature, layer) {
+
+            layer.bindPopup(
+                "<b>Hyderabad Study Area</b>"
+            );
+        }
+
+    });
+
+    boundary.addTo(map);
+
+});
+
+</script>
+
+</body>
+</html>
