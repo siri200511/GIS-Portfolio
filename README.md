@@ -35,8 +35,7 @@ A GIS project mapping landfill locations across India using geographic coordinat
 **Tools:** QGIS
 
 **Data:** City, State, Landfill Name, Latitude, Longitude, Type and Status
-
-👉 [View Project](./QGIS/DISPOSAL_IN_INDIA)
+👉 [View Project](./QGIS/)
 
 ---
 
