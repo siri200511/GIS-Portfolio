@@ -10,7 +10,7 @@ The aim is to visualize the spatial distribution of landfill sites and provide t
 
 The landfill locations are available as a GeoJSON dataset.
 
-👉 **[View Interactive Map](./disposal_map.geojson)**
+👉 [View Project](./QGIS/DISPOSAL_IN_INDIA/)
 
 The GeoJSON file can also be downloaded and opened in QGIS, ArcGIS, or other GIS software.
 
