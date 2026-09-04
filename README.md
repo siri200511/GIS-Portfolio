@@ -35,7 +35,22 @@ A GIS project mapping landfill locations across India using geographic coordinat
 **Tools:** QGIS
 
 **Data:** City, State, Landfill Name, Latitude, Longitude, Type and Status
+
 👉 [View Project](./QGIS/)
+
+---
+
+### 🏙️ Hyderabad Tourism & Accessibility Map
+
+A GIS project mapping tourism attractions in Hyderabad along with major roads, metro stations, parks and water bodies.
+
+**Tools:** QGIS, QuickOSM
+
+**Focus:** Tourism, Accessibility, Transportation, Green Spaces and Water Bodies
+
+👉 [View Project](./QGIS/LANDMARKS_HYDERABAD/)
+
+🌐 [View Interactive Web Map](./QGIS/LANDMARKS_HYDERABAD/map.html)
 
 ---
 
@@ -47,7 +62,13 @@ Projects created using ArcGIS will be added here.
 
 ## 🌐 Web Maps
 
-Interactive web mapping projects will be added here.
+### 🏙️ Hyderabad Tourism & Accessibility Map
+
+An interactive web map created using QGIS and qgis2web.
+
+The map allows users to explore tourism attractions, roads, metro stations, parks, water bodies and the Hyderabad study area.
+
+🌐 [Open Interactive Web Map](./QGIS/LANDMARKS_HYDERABAD/map.html)
 
 ---
 
@@ -57,8 +78,19 @@ Interactive web mapping projects will be added here.
 GIS-Portfolio
 │
 ├── QGIS
-│   └── DISPOSAL_IN_INDIA
+│   ├── DISPOSAL_IN_INDIA.qgz
+│   ├── disposal_map.geojson
+│   │
+│   └── LANDMARKS_HYDERABAD
+│       ├── LANDMARKS_HYDERABAD.qgz
+│       ├── hyderabad_boundary.geojson
+│       ├── hyderabad_tourism_attractions.geojson
+│       ├── hyderabad_major_roads.geojson
+│       ├── hyderabad_metro_stations.geojson
+│       ├── hyderabad_parks.geojson
+│       ├── hyderabad_waterbodies.geojson
+│       └── map.html
 │
 ├── ArcGIS
 │
-└── Web Maps
+└── README.md
